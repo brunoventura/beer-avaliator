@@ -1,0 +1,6 @@
+{
+    "directory": "static/bower_components",
+    "scripts": {
+    	"postinstall": "grunt wiredep"
+	}
+}
