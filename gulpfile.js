@@ -3,7 +3,6 @@
 var browserSync = require('browser-sync').create();
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var livereload = require('gulp-livereload');
 var gulpFilter = require('gulp-filter');
 var bowerSrc = require('gulp-bower-src');
 var htmlreplace = require('gulp-html-replace');
