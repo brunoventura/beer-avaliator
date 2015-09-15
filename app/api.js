@@ -1,23 +1,31 @@
 'use strict';
 
-var express = require('express');
-var MongoClient = require('mongodb').MongoClient;
-var app = express();
+var app = require('express')();
+var bodyParser = require('body-parser')
+var beerController = require('./beer-controller')('mongodb://localhost:27017/brejas-crawler');
 
-var mongoUrl = 'mongodb://localhost:27017/brejas-crawler';
+app.use(bodyParser.json());
 
-app.get('/beer', function (req, res) {
-	MongoClient.connect(mongoUrl, function(err, db) {
-        var collection = db.collection('brejas');
-		collection.count(function(err, count) {
-			var random = Math.round(Math.random() * (10 -1));
-			console.log(random);
-	        collection.find().limit(1).skip(random).next(function(err, result) {
-	            res.json(result);
-	            db.close();
-	        });
-		});
-    });
+app.get('/api-v1/beer', function (req, res) {
+	beerController.random(function(result) {
+        res.json(result);
+	});
+});
+
+app.post('/api-v1/beer/:id/vote', function (req, res) {
+	var validVotes = ['up', 'down'];
+
+	if(!req.body || !req.body.vote || validVotes.indexOf(req.body.vote) < 0)
+		res.status(500).json({error: "Invalid Params"});
+
+	var vote = {
+		id: req.params.id,
+		vote: req.body.vote
+	};
+
+	beerController.vote(vote, function(result) {
+        res.json(result);
+	});
 });
 
 var server = app.listen(3000, function () {
