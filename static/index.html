@@ -1,28 +1,62 @@
+<!DOCTYPE HTML>
+<!--
+	Identity by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-<head>
-	<title></title>
-	<!-- build:css -->
+	<head>
+		<title>Identity by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-loading">
 
-  	<!-- bower:css -->
-  	<!-- endbower -->
-	
-	<!-- injector:css -->
-	<link rel="stylesheet" href="css/styles.css">
-	<!-- endinjector -->
-	<!-- endbuild -->
-</head>
-<body>sdfdfdfg
- <!-- build:js -->
- <!-- bower:js -->
- <script src="bower_components/jquery/dist/jquery.js"></script>
- <script src="bower_components/d3/d3.js"></script>
- <script src="bower_components/color-thief/src/color-thief.js"></script>
- <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
- <!-- endbower -->
+		<!-- Wrapper -->
+			<div id="wrapper">
 
- <!-- injector:js -->
- <script src="scripts/app.js"></script>
- <!-- endinjector -->
- <!-- endbuild -->
-</body>
+				<!-- Main -->
+					<section id="main">
+						<header>
+							<span class="avatar"><img src="images/avatar.jpg" alt="" /></span>
+							<h1 class="name"></h1>
+							<p class="sub">Cerveja Pilsen</p>
+						</header>
+
+						<footer>
+							<ul class="icons">
+								<li><a href="#" class="fa-thumbs-o-up"></a></li>
+								<li><a href="#" class="fa-refresh"></a></li>
+								<li><a href="#" class="fa-thumbs-o-down"></a></li>
+							</ul>
+						</footer>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="copyright">
+							<li>&copy; Um oferecimento de: <a href="http://html5up.net">Brejas</a></li>
+							<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
+			<script>
+				if ('addEventListener' in window) {
+					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+				}
+			</script>
+			<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+			<script type="text/javascript" src="assets/js/app.js"></script>
+
+	</body>
 </html>

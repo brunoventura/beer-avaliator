@@ -5,6 +5,11 @@ var bodyParser = require('body-parser')
 var beerController = require('./beer-controller')('mongodb://localhost:27017/brejas-crawler');
 
 app.use(bodyParser.json());
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.get('/api-v1/beer', function (req, res) {
 	beerController.random(function(result) {
@@ -28,7 +33,7 @@ app.post('/api-v1/beer/:id/vote', function (req, res) {
 	});
 });
 
-var server = app.listen(3000, function () {
+var server = app.listen(8000, function () {
 	var host = server.address().address;
 	var port = server.address().port;
 

@@ -20,17 +20,22 @@ require('gulp-grunt')(gulp);
 gulp.task('serve', function() {
     browserSync.init({
         server: {
-            baseDir: "./static"
+            baseDir: "./static",
+            middleware: function (req, res, next) {
+              console.log('Adding CORS header for ' + req.method + ': ' + req.url);
+              res.setHeader('Access-Control-Allow-Origin', '*');
+              next();
+            }
         }
     });
 
-    gulp.watch('static/scss/*.scss', ['sass']);
+    gulp.watch('static/assets/**/*.scss', ['sass']);
     gulp.watch("static/*.html").on('change', browserSync.reload);
     gulp.watch(['static/scripts/*.js', 'static/css/*.css'], ['grunt-injector']);
 });
 
 gulp.task('sass', function() {
-  gulp.src('static/scss/*.scss')
+  gulp.src('static/assets/sass/*.scss')
   	.pipe(sass().on('error', sass.logError))
   	.pipe(gulp.dest('static/css/'))
   	.pipe(browserSync.stream());
