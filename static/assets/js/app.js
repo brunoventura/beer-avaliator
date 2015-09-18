@@ -10,8 +10,8 @@
   };
 
   var renderBeer = function(beer) {
-    var block = $("#main header");
-    $(block).find(".avatar img").one('load', function() {
+    var block = $(".header");
+    $(block).find(".beer-photo-item").one('load', function() {
       $(block).find(".name").text(beer.nome);
       printVotes(beer.votes);
       globalBeer = beer;

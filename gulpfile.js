@@ -13,6 +13,8 @@ var concat = require('gulp-concat');
 var clean = require('gulp-clean');
 var ghPages = require('gulp-gh-pages');
 var minifyCss = require("gulp-minify-css");
+var plumber = require("gulp-plumber");
+var stylus = require("gulp-stylus");
 
 require('gulp-grunt')(gulp);
 
@@ -29,16 +31,16 @@ gulp.task('serve', function() {
         }
     });
 
-    gulp.watch('static/assets/**/*.scss', ['sass']);
+    gulp.watch('static/assets/stylus/*.styl', ['stylus']);
     gulp.watch("static/*.html").on('change', browserSync.reload);
     gulp.watch(['static/scripts/*.js', 'static/css/*.css'], ['grunt-injector']);
 });
 
-gulp.task('sass', function() {
-  gulp.src('static/assets/sass/*.scss')
-  	.pipe(sass().on('error', sass.logError))
-  	.pipe(gulp.dest('static/css/'))
-  	.pipe(browserSync.stream());
+gulp.task('stylus', function () {
+    gulp.src('./static/assets/stylus/*.styl')
+        .pipe(plumber())
+        .pipe(stylus())
+        .pipe(gulp.dest('./static/assets/css'))
 });
 
 //-------------------
