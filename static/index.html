@@ -1,62 +1,43 @@
-<!DOCTYPE HTML>
-<!--
-	Identity by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<!doctype html>
 <html>
-	<head>
-		<title>Identity by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-loading">
+    <head>
+        <title>Beer Avaliator • github.com/brunoventura</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Signika:300,600,700" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
+    <body>
+        <main class="main">
+            <h1 class="logo-title">Beer Avaliator</h1>
+            <div class="main-content">
+                <header class="header">
+                    <div class="avatar">
+                        <img src="assets/img/avatar.jpg" />
+                    </div>
+                    <h1 class="name">Lorem ipsum dolor sit duas linhas</h1>
+                    <p class="sub">Cerveja Pilsen</p>
+                </header>
 
-				<!-- Main -->
-					<section id="main">
-						<header>
-							<span class="avatar"><img src="images/avatar.jpg" alt="" /></span>
-							<h1 class="name"></h1>
-							<p class="sub">Cerveja Pilsen</p>
-						</header>
+                <footer class="controls">
+                    <ul class="controls-list">
+                        <li class="control-item dislike"></li>
+                        <li class="control-item refresh"></li>
+                        <li class="control-item like"></li>
+                    </ul>
+                </footer>
+            </div>
+        </main>
 
-						<footer>
-							<ul class="icons">
-								<li><a href="#" class="fa-thumbs-o-up"></a></li>
-								<li><a href="#" class="fa-refresh"></a></li>
-								<li><a href="#" class="fa-thumbs-o-down"></a></li>
-							</ul>
-						</footer>
-					</section>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="copyright">
-							<li>&copy; Um oferecimento de: <a href="http://html5up.net">Brejas</a></li>
-							<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-			<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
-			<script>
-				if ('addEventListener' in window) {
-					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
-					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
-				}
-			</script>
-			<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-			<script type="text/javascript" src="assets/js/app.js"></script>
-
-	</body>
+        <!-- JS -->
+        <script>
+            if ('addEventListener' in window) {
+                window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+                document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+            }
+        </script>
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/js/app.js"></script>
+    </body>
 </html>

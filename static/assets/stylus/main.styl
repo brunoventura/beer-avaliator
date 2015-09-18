@@ -1,0 +1,129 @@
+@css {
+  body {
+    background:
+      -webkit-linear-gradient(45deg, hsla(47, 100%, 55%, 1) 0%, hsla(47, 100%, 55%, 0) 70%),
+      -webkit-linear-gradient(315deg, hsla(62, 67%, 82%, 1) 10%, hsla(62, 67%, 82%, 0) 80%),
+      -webkit-linear-gradient(225deg, hsla(47, 65%, 50%, 1) 10%, hsla(47, 65%, 50%, 0) 80%),
+      -webkit-linear-gradient(135deg, hsla(26, 67%, 55%, 1) 100%, hsla(26, 67%, 55%, 0) 70%);
+    background:
+      linear-gradient(45deg, hsla(47, 100%, 55%, 1) 0%, hsla(47, 100%, 55%, 0) 70%),
+      linear-gradient(135deg, hsla(62, 67%, 82%, 1) 10%, hsla(62, 67%, 82%, 0) 80%),
+      linear-gradient(225deg, hsla(47, 65%, 50%, 1) 10%, hsla(47, 65%, 50%, 0) 80%),
+      linear-gradient(315deg, hsla(26, 67%, 55%, 1) 100%, hsla(26, 67%, 55%, 0) 70%);
+  }
+}
+
+phone = '(max-width: 580px),(max-device-width: 380px)'
+
+*, *:before, *:after
+  box-sizing: border-box
+
+html, body
+  height: 100%
+
+body
+  margin: 0
+  padding: 0
+  font-size: 62.5%
+  font-family: 'Signika', sans-serif
+  
+.main
+  max-width: 45em
+  height: 100%
+  margin: 0 auto
+  padding: 2em
+  text-align: center
+  position: relative
+  
+  @media phone
+    padding-top: 0
+    background: rgba(#fff, .6)
+    
+.main-content
+  border-radius: 1em
+  padding: 5em
+  background: rgba(#fff, .9)
+  width: 90%
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  -webkit-transform: translate(-50%, -50%)
+  
+  @media phone
+    background: none
+    position: static
+    width: 100%
+    padding: 0
+    transform: none
+    -webkit-transform: none
+
+.logo-title
+  color: #D8A130
+  opacity: .4
+  font-weight: 700
+  font-size: 4em
+  margin: 0
+  padding: 0
+  
+  @media phone
+    opacity: .3
+    font-size: 3em
+    padding: .4em 0
+
+.header
+  min-height: 30em
+
+.name
+  margin: .5em 0
+  padding: 0
+  line-height: 1.4em
+  font-size: 3em
+  color: #333
+  
+.sub
+  margin: 0
+  padding: 0
+  color: #000
+  font-size: 1.6em
+  
+.controls-list
+  margin: 0
+  padding: 0
+  list-style: none
+  text-align: center
+  
+.control-item
+  display: inline-block
+  border-radius: 50%
+  width: 10em
+  height: @width
+  background-repeat: no-repeat
+  background-position: center center
+  background-size: 60%
+  cursor: pointer
+  
+  @media phone
+    width: 8em
+    height: @width
+  
+  &.like, &.dislike
+    background-image: url('../img/like.svg')
+  
+  &.refresh
+    background-image: url('../img/refresh.svg')
+    width: 5em
+    height: @width
+    margin: 0 2em
+    opacity: .4    
+    
+    @media phone
+      margin: 0 1em
+    
+  &.like
+    background-color: #26C281
+    
+  &.dislike
+    background-color: #D24D57
+    transform: rotate(180deg)
+    -webkit-transform: rotate(180deg)
