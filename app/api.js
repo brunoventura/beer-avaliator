@@ -20,9 +20,9 @@ app.get('/api-v1/beer', function (req, res) {
 app.post('/api-v1/beer/:id/vote', function (req, res) {
 	var validVotes = ['up', 'down'];
 
+  console.log(req);
 	if(!req.body || !req.body.vote || validVotes.indexOf(req.body.vote) < 0)
 		res.status(500).json({error: "Invalid Params"});
-
 	var vote = {
 		id: req.params.id,
 		vote: req.body.vote

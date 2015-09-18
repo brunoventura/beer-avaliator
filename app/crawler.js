@@ -11,7 +11,7 @@ console.log('Crawling!');
 
 var baseUrl = 'http://www.brejas.com.br';
 var page = 1;
-var pageMax = 3;
+var pageMax = 5;
 var requestQueue = [];
 var crawlerResult = {
     read: 0,
