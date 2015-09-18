@@ -1,11 +1,10 @@
 (function(){
   $( document ).ready(function() {
-    $.getJSON( "http://10.0.0.105:8000/api-v1/beer", {crossDomain : true})
+    $.getJSON('http://192.168.0.46:8000/api-v1/beer', {crossDomain : true})
     .done(function(data) {
-      var block = $("#main header");
-      $(block).find(".avatar img").attr('src', data.img);
-      $(block).find(".name").text(data.nome);
+      var block = $('.header');
+      $(block).find('.beer-photo-item').attr('src', data.img);
+      $(block).find('.name').text(data.nome);
     });
-
   });
 }());
