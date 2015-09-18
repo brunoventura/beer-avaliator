@@ -1,5 +1,5 @@
 (function(){
-  var api = "http://192.168.25.7:8000/api-v1/beer/"
+  var api = "http://localhost:8000/api-v1/beer/"
   var globalBeer = null;
 
   var printVotes = function(votes) {
