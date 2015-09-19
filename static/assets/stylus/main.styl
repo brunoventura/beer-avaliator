@@ -26,7 +26,10 @@ body
   padding: 0
   font-size: 62.5%
   font-family: 'Signika', sans-serif
-  
+
+#rank li
+  font-size: 30px
+
 .main
   max-width: 45em
   height: 100%
@@ -34,11 +37,11 @@ body
   padding: 2em
   text-align: center
   position: relative
-  
+
   @media phone
     padding-top: 1em
     background: rgba(#fff, .6)
-    
+
 .main-content
   border-radius: 1em
   padding: 5em
@@ -49,7 +52,7 @@ body
   left: 50%
   transform: translate(-50%, -50%)
   -webkit-transform: translate(-50%, -50%)
-  
+
   @media phone
     background: none
     position: static
@@ -65,14 +68,14 @@ body
   font-size: 4em
   margin: 0
   padding: 0
-  
+
   @media phone
     display: none
 
 .beer-photo-item
   max-width: 300px
   max-height: 220px
-  
+
   @media phone
     max-width: 300px
     max-height: 200px
@@ -88,19 +91,19 @@ body
   color: #333
   height: 84px
   overflow: hidden
-  
+
 .sub
   margin: 0
   padding: 0
   color: #000
   font-size: 1.6em
-  
+
 .controls-list
   margin: 0
   padding: 0
   list-style: none
   text-align: center
-  
+
 .control-item
   display: inline-block
   border-radius: 50%
@@ -110,27 +113,27 @@ body
   background-position: center center
   background-size: 60%
   cursor: pointer
-  
+
   @media phone
     width: 8em
     height: @width
-  
+
   &.like, &.dislike
     background-image: url('../img/like.svg')
-  
+
   &.refresh
     background-image: url('../img/refresh.svg')
     width: 5em
     height: @width
     margin: 0 2em
-    opacity: .4    
-    
+    opacity: .4
+
     @media phone
       margin: 0 1em
-    
+
   &.like
     background-color: #26C281
-    
+
   &.dislike
     background-color: #D24D57
     transform: rotate(180deg)

@@ -3,13 +3,13 @@
 var MongoClient = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
 
-var url; 
+var url;
 var collectionName = "brejas";
 
 var singleton = function(mongoUrl) {
 	url = mongoUrl;
 	validateConfig();
-	
+
 	return singleton;
 };
 
@@ -47,14 +47,14 @@ function save(data, callback) {
 		collection.update(
 			{ nome: data.nome },
 			{ $set: data },
-			{ upsert: true }, 
+			{ upsert: true },
 			function(err, result) {
 		        if(err) throw err;
 
 		        if (callback) {
 			        callback(result);
 		        };
-		        db.close();   
+		        db.close();
 			}
 		);
 	});
@@ -92,14 +92,14 @@ function random(callback) {
 		var random = Math.round(Math.random() * (count -1));
 		connect(function(db, collection) {
 			collection.find().limit(1).skip(random).next(function(err, result) {
-    			if(err) throw err;
+				if(err) throw err;
 
-		        console.log("Got a random beer!!!");
-		        if (callback) {
-			        callback(result);
-		        };
-		        db.close();
-        	});
+				console.log("Got a random beer!!!");
+				if (callback) {
+				  callback(result);
+				};
+				db.close();
+      });
 		});
 	});
 };
@@ -107,18 +107,33 @@ function random(callback) {
 function vote(vote, callback) {
 	connect(function(db, collection) {
 		collection.update(
-			{_id: ObjectID(vote.id)}, 
-			{ $inc: (vote.vote === "up"? {"votes.up": 1}: {"votes.down": 1})},
+			{_id: ObjectID(vote.id)},
+			{ $inc: (vote.vote === "like"? {like: 1}: {dislike: 1})},
 			null,
 			function(err, result) {
 				if(err) throw err;
 
-		        if (callback) {
-			        callback(result);
-		        };
-		        db.close();
+        if (callback) {
+	        callback(result);
+        };
+        db.close();
 			}
-	    );
+		);
+	});
+};
+
+function rank(limit, callback) {
+	connect(function(db, collection) {
+		collection.find().sort({"like": -1}).limit(limit).toArray(
+			function(err, result) {
+				if(err) throw err;
+
+        if (callback) {
+	        callback(result);
+        };
+        db.close();
+			}
+    );
 	});
 };
 
@@ -129,3 +144,4 @@ module.exports.count = count;
 module.exports.random = random;
 module.exports.vote = vote;
 module.exports.find = find;
+module.exports.rank = rank;

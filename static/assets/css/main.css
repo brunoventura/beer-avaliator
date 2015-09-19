@@ -18,6 +18,9 @@ body {
   font-size: 62.5%;
   font-family: 'Signika', sans-serif;
 }
+#rank li {
+  font-size: 30px;
+}
 .main {
   max-width: 45em;
   height: 100%;

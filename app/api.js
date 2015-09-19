@@ -17,8 +17,14 @@ app.get('/api-v1/beer', function (req, res) {
 	});
 });
 
+app.get('/api-v1/beer/rank/', function (req, res) {
+  beerController.rank(10, function(result) {
+        res.json(result);
+	});
+});
+
 app.post('/api-v1/beer/:id/vote', function (req, res) {
-	var validVotes = ['up', 'down'];
+	var validVotes = ['like', 'dislike'];
 
   console.log(req);
 	if(!req.body || !req.body.vote || validVotes.indexOf(req.body.vote) < 0)

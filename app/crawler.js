@@ -26,7 +26,7 @@ while (true) {
 
     page++;
 
-    requestQueue.push(requestGet(baseUrl + '/cerveja?page=' + page)
+    requestQueue.push(requestGet(baseUrl + '/cerveja?order=rhits&page=' + page)
         .then(function(html) {
             var result = [];
             var $ = cheerio.load(html[1]);
@@ -39,13 +39,13 @@ while (true) {
 
                 result.push(breja);
             });
-
             return result;
         })
         .map(function(breja) {  // This each is from bluebird, you cna use .map, but each is serial, and map is parallel
             return requestGet(breja.url).then(function(html) {
                 var $ = cheerio.load(html[1]);
-                breja.img = $('meta[property="og:image"]').attr("content");;
+                breja.img = $('meta[property="og:image"]').attr("content");
+                breja.estilo = $('.jrEstilo > .jrFieldValue a:first-child').text();
                 beerController.save(breja, function(data) {
                     if (data.result.nModified) crawlerResult.updated++;
                     if (data.result.upserted) crawlerResult.inserted++;
