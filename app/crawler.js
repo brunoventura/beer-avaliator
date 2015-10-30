@@ -5,7 +5,8 @@ var request = require('request');
 var requestGet = Promise.promisify(request.get);
 var fs = require('fs');
 var cheerio = require('cheerio');
-var beerController = require('./beer-controller')('mongodb://localhost:27017/brejas-crawler');
+var config = require('./config');
+var beerController = require('./beer-controller')(config.mongo);
 
 console.log('Crawling!');
 
