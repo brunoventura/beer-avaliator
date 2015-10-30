@@ -2,7 +2,8 @@
 
 var app = require('express')();
 var bodyParser = require('body-parser')
-var beerController = require('./beer-controller')('mongodb://localhost:27017/brejas-crawler');
+var config = require('./config');
+var beerController = require('./beer-controller')(config.mongo);
 
 app.use(bodyParser.json());
 app.use(function(req, res, next) {
